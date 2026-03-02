@@ -1,4 +1,4 @@
-#include "src/LIDARLite_v4LED.h"
+#include "LIDARLite_v4LED.h"
 LIDARLite_v4LED myLIDAR; 
 double LidarDistance;
 bool flag;
@@ -38,13 +38,14 @@ void setup() {
 
 void loop() {
 
-  if(flag){
-
     if(!myLIDAR.getBusyFlag()) { // if the distance is ready
     LidarDistance = 10*myLIDAR.readDistance();  // Read and make it mm 
     myLIDAR.takeRange(); // Take another measurement for next time
     }
-    Serial1.print(LidarDistance); 
+    
+  if(flag){
+
+    Serial1.println(LidarDistance); 
 
     flag = false;
   
