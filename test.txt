@@ -1,1 +1,2 @@
-This is a test. This text was first added by Jacob
+This is a test. This text was first added by Jacob.
+This is test number two.
