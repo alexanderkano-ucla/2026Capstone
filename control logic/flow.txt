@@ -1,0 +1,44 @@
+
+programStart();
+goToObj(trafficLight);
+waitForGreen();
+goToObj(assemblyStation);
+goToObj(bun);
+pickupObj(bun);
+goToObj(patty);
+pickupObj(patty);
+goToObj(bun);
+pickupObj(bun);
+goToObj(face);
+identifyGender();
+goToObj(face);
+identifyGender();
+if (gender == storedGender) {
+    depositObj();
+} else {
+    goToObj(face);
+    if (gender == storedGender) {
+        depositObj();
+    } else {
+        error();
+    }
+}
+goToObj(stopSign);
+programEnd();
+
+goToObj(x) {
+    if (!analyzeCam(x)) {
+
+        if (location==x.location) {
+            if (analysisTimeout) {
+                error();
+            } else {
+                rotate();
+            }
+        } else {
+            planPath(x.location);
+            planTraj();
+            motorCmd();
+        }
+    }
+}
